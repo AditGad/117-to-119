@@ -1,0 +1,24 @@
+body{
+    background-color:cyan;
+}
+#showsketch{
+    float:right;
+    
+}
+p{
+    padding-top:10px;
+    font-size: 25px;
+}
+canvas{
+    border:5px solid red;
+    border-radius:20px;
+    animation-name:whatname;
+    animation-duration:4s;
+    margin-top:50px;
+    animation-iteration-count: infinite;
+}
+@keyframes whatname {
+    from{
+box-shadow:5px 5px 20px darkblue;}
+to{box-shadow:5px 5px 20px black;}
+}
