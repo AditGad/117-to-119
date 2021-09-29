@@ -13,10 +13,28 @@ function setup(){
 canvas=createCanvas(300,300);
 canvas.center();
 background("white");
+canvas.mouseReleased(classifycanvas);
 }
 function draw(){
-
-}  
+strokeWeight(12);
+stroke(0);
+if (mouseIsPressed){
+ line(pmouseX, pmouseY, mouseX, mouseY); }
+ checksketch()
+     if (drawnsketch==sketch){
+answerholder="set";
+score++;
+document.getElementById("score").innerHTML="score="+score;
+     }
+ 
+} 
+function classifycanvas() { classifier.classify(canvas, gotResult); }
+ function gotResult(error, results)
+ { if (error) { console.error(error); } 
+ console.log(results);
+  drawnsketch = results[0].label;
+ document.getElementById('label').innerHTML = 'Your Sketch: ' + drawnsketch; 
+ document.getElementById('confidence').innerHTML = 'Confidence: ' + Math.round(results[0].confidence * 100) + '%'; }
 function checksketch(){
     timercounter++;
     document.getElementById("time").innerHTML="timer= "+timercounter;
